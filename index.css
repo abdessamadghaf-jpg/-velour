@@ -1,0 +1,58 @@
+/* src/index.css */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #FAF6F0;
+  color: #1A1208;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FAF6F0; }
+::-webkit-scrollbar-thumb { background: #C17B5C44; border-radius: 3px; }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  /* Hero: stack vertically */
+  section:first-of-type > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats bar: 2 col */
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Product modal: single column */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Nav: hide desktop links */
+  .desktop-nav { display: none !important; }
+
+  /* Footer: single col */
+  footer [style*="grid-template-columns: 2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Full-width modal on small screens */
+  [style*="maxWidth: 800"] {
+    width: 100% !important;
+    height: 100% !important;
+    maxHeight: 100% !important;
+    borderRadius: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+}
